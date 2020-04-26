@@ -1,5 +1,4 @@
 const contributors = [
-  { name: 'Hafid Mukhlasin', link: 'https://github.com/hscstudio' },
   // { name: 'namamu', link: 'link_githubmu' },
 ]
 
