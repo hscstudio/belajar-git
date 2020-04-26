@@ -1,0 +1,26 @@
+{
+  "name": "belajar-git",
+  "version": "1.0.0",
+  "description": "Belajar Git Like Pro",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hscstudio/belajar-git.git"
+  },
+  "keywords": [
+    "belajar",
+    "git"
+  ],
+  "author": "Hafid Mukhlasin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hscstudio/belajar-git/issues"
+  },
+  "homepage": "https://github.com/hscstudio/belajar-git#readme",
+  "devDependencies": {
+    "jest": "^25.4.0"
+  }
+}
