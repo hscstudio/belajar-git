@@ -89,7 +89,7 @@ Setelah semua persiapan atau langkah pertama selesai kamu kerjakan maka kita mas
 
 Namun sebelum itu, jika kamu merasa terbantu dalam belajar git menggunakan repositori ini maka jangan lupa dukung repo ini dengan memberikan bintang (star) dan mem-fork (copy repo ini ke repo-mu) dengan cara klik tombol berikut:
 
-![star-fork-github](star-fork-github.png)
+![star-fork-github](images/star-fork-github.png)
 
 Serta bagikan link repo ini ke rekanmu yang lain.
 
@@ -218,17 +218,19 @@ Setelah push dilakukan, maka buka repo ini pada browser dengan alamat https://gi
 
 Maka akan muncul tampilan seperti di bawah ini:
 
-![pull-request-notification](pull-request-notification.png)
+![pull-request-notification](images/pull-request-notification.png)
 
 - Klik tombol warna hijau yang bertuliskan `Compare & Pull Request`.
 
-![form-pull-request](form-pull-request.png)
+![form-pull-request](images/form-pull-request.png)
 
 Halaman ini menampilkan perbandingan antara kode branch kita dengan kode master di repo, bagian mana yang berubah dst. Github otomatis melakukan pengecekan apakah ada conflict atau tidak. Pada contoh gambar diatas terdapat informasi `able to merge` artinya tidak ada conflict.
 
 - Langkah berikutnya silakan isi komentar pada form tersebut kemudian klik tombol `Create pull request`.
 
-- Tetap tenang, karena saya akan mereview `pull request`-mu pada kesempatan berikutnya, jika tidak ada conflict maka akan saya merge namun jika masih perlu perubahan akan saya cancel.
+- Tetap tenang, karena saya akan mereview `pull request`-mu pada kesempatan berikutnya, jika tidak ada conflict maka akan saya merge namun jika masih perlu perubahan akan saya cancel atau akan ada komentar dari saya pada halaman tersebut.
+
+> Contoh penanganan pull request oleh pemilik repo [handling-pull-request](images/handling-pull-request.md)
 
 - Selesai
 
@@ -236,8 +238,8 @@ Halaman ini menampilkan perbandingan antara kode branch kita dengan kode master 
 
 Demikian langkah-langkah untuk menggunakan git dan berkontribusi  pada projek bersama. Silakan dipraktekkan dan jika ada masukan jangan sungkan sungkan untuk menulis issue pada repo ini.
 
-
-Salam hormat dari saya.
+Salam hormat dari saya
+Hafid Mukhlasin
 
 
 
