@@ -99,7 +99,7 @@ Untuk mengcopy repo ini ke lokal PC-mu atau istilahnya meng-clone maka berikut i
 
 Pada terminal, jalankan perintah berikut:
 
-`git clone https://github.com/hscstudio/belajar-git.git`
+`git clone git@github.com:hscstudio/belajar-git.git`
 
 - masuk ke direktori belajar-git
 
