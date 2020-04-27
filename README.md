@@ -2,7 +2,7 @@
 
 Repositori (repo) ini dibuat untuk memudahkan kamu dalam belajar menggunakan git dengan cara langsung praktek. Sekaligus belajar bagaimana cara berkontribusi pada projek yang menggunakan git atau dalam hal ini github.
 
-## Langkap Pertama!
+## Langkah Pertama!
 
 Beberapa hal yang harus kamu persiapkan sebelum memulai semua ini.
 
@@ -66,10 +66,10 @@ ikuti langkah langkahnya dan jika berhasil akan menampilkan:
 
 `Hi username! You've successfully authenticated, but Github does not provide shell access.`
 
-Referensi: 
-- https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-- https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
-- https://kbroman.org/github_tutorial/
+> Referensi: 
+> https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+> https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+> https://kbroman.org/github_tutorial/
 
 - Konfigurasi Akun Git Pada PC / Terminal
 
