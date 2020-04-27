@@ -232,7 +232,7 @@ Halaman ini menampilkan perbandingan antara kode branch kita dengan kode master 
 
 - Tetap tenang, karena saya akan mereview `pull request`-mu pada kesempatan berikutnya, jika tidak ada conflict maka akan saya merge namun jika masih perlu perubahan akan saya cancel atau akan ada komentar dari saya pada halaman tersebut.
 
-> Contoh penanganan pull request oleh pemilik repo [handling-pull-request](images/handling-pull-request.md)
+> Contoh penanganan pull request oleh pemilik repo [handling-pull-request](handling-pull-request.md)
 
 - Selesai
 
