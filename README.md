@@ -212,6 +212,8 @@ To https://github.com/hscstudio/belajar-git.git
 
 Hasil diatas mengindikasikan bahwa push yang kamu lakukan berhasil dan si github  menyuruh kamu mengakses halaman https://github.com/hscstudio/belajar-git/pull/new/fitur_contributor untuk melakukan `pull request` kepada si pemilik repo, ikuti langkah berikutnya dulu.
 
+> Jika error, coba kamu baca link ini: https://stackoverflow.com/questions/15381198/remove-credentials-from-git
+
 - Submit perubahan atau pull request agar bisa direview oleh pemilik repo ini atau dalam hal ini saya.
 
 Setelah push dilakukan, maka buka repo ini pada browser dengan alamat https://github.com/hscstudio/belajar-git, silakan login ke github jika belum.
