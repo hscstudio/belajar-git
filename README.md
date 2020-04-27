@@ -161,6 +161,8 @@ git branch fitur_contributor
 git checkout fitur_contributor
 ```
 
+- Jalankan perintah `git pull` untuk mendapatkan kode terbaru dari server git.
+
 - Lakukan perubahan sesuai tugas pada Langkah Ketiga.
 
 - Jika sudah, jalankan test `npm test`
@@ -182,16 +184,60 @@ Ran all test suites.
   
 - Kemudian commit perubahan tersebut, dengan perintah `git commit -m "update fitur contributor"`
 
+- Jalankan perintah `git pull` untuk mendapatkan kode terbaru dari server git. Pada saat ini bisa jadi ada error dikodemu karena terjadi conflict yaitu ada perbedaan kode repo dan kodemu, maka perbaiki error itu, lakukan merge.
+
+- Jalankan test lagi `npm test` untuk memastikan semua baik-baik saja.
+
 - Push perubahanmu ke repo server, melalui perintah:
 
 `git push origin fitur_contributor`
 
-- Submit perubahan agar bisa direview oleh pemilik repo ini atau dalam hal ini saya.
+Hasilnya kurang lebih sebagai berikut:
+
+```
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 571 bytes | 571.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+remote: 
+remote: Create a pull request for 'fitur_contributor' on GitHub by visiting:
+remote:      https://github.com/hscstudio/belajar-git/pull/new/fitur_contributor
+remote: 
+To https://github.com/hscstudio/belajar-git.git
+ * [new branch]      fitur_contributor -> fitur_contributor
+ ```
+
+Hasil diatas mengindikasikan bahwa push yang kamu lakukan berhasil dan si github  menyuruh kamu mengakses halaman https://github.com/hscstudio/belajar-git/pull/new/fitur_contributor untuk melakukan `pull request` kepada si pemilik repo, ikuti langkah berikutnya dulu.
+
+- Submit perubahan atau pull request agar bisa direview oleh pemilik repo ini atau dalam hal ini saya.
 
 Setelah push dilakukan, maka buka repo ini pada browser dengan alamat https://github.com/hscstudio/belajar-git, silakan login ke github jika belum.
 
 Maka akan muncul tampilan seperti di bawah ini:
 
+![pull-request-notification](pull-request-notification.png)
+
+- Klik tombol warna hijau yang bertuliskan `Compare & Pull Request`.
+
+![form-pull-request](form-pull-request.png)
+
+Halaman ini menampilkan perbandingan antara kode branch kita dengan kode master di repo, bagian mana yang berubah dst. Github otomatis melakukan pengecekan apakah ada conflict atau tidak. Pada contoh gambar diatas terdapat informasi `able to merge` artinya tidak ada conflict.
+
+- Langkah berikutnya silakan isi komentar pada form tersebut kemudian klik tombol `Create pull request`.
+
+- Tetap tenang, karena saya akan mereview `pull request`-mu pada kesempatan berikutnya, jika tidak ada conflict maka akan saya merge namun jika masih perlu perubahan akan saya cancel.
+
+- Selesai
+
+## Kesimpulan
+
+Demikian langkah-langkah untuk menggunakan git dan berkontribusi  pada projek bersama. Silakan dipraktekkan dan jika ada masukan jangan sungkan sungkan untuk menulis issue pada repo ini.
+
+
+Salam hormat dari saya.
 
 
 
