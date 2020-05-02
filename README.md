@@ -87,23 +87,51 @@ git config --global user.name "Your Name"
 
 Setelah semua persiapan atau langkah pertama selesai kamu kerjakan maka kita masuk ke langkah kedua yaitu mengcopy ke lokal PC.
 
-Namun sebelum itu, jika kamu merasa terbantu dalam belajar git menggunakan repositori ini maka jangan lupa dukung repo ini dengan memberikan bintang (star) dan mem-fork (copy repo ini ke repo-mu) dengan cara klik tombol berikut:
+Namun sebelum itu, jika kamu merasa terbantu dalam belajar git menggunakan repositori ini maka jangan lupa dukung repo ini dengan memberikan bintang (star) serta bagikan link repo ini ke rekanmu yang lain.
 
 ![star-fork-github](images/star-fork-github.png)
 
-Serta bagikan link repo ini ke rekanmu yang lain.
+- Langkah pertama adalah mengcopy repo ini ke repo-mu (ini harus dilakukan jika kamu ingin berkontribusi pada suatu repo). Caranya: klik tombol "Fork" pada bagian kiri atas halaman sebagaimana yang ditujukkan pada gambar di atas.
+Jika berhasil maka tampilan di repomu kurang lebih akan seperti berikut ini:
 
-Untuk mengcopy repo ini ke lokal PC-mu atau istilahnya meng-clone maka berikut ini caranya:
+![star-fork-github](images/star-fork-github.png)
 
-- clone repo ini 
+Perhatikan bahwa ada informasi "forked from hscstudio/belajar-git" yang menandakan bahwa repo mu itu hasil fork dari repo ini hscstudio/belajar-git.
 
-Pada terminal, jalankan perintah berikut:
+- Copy repo hasil fork tadi ke lokal PC-mu atau istilahnya meng-clone. Caranya adalah copy 
 
-`git clone git@github.com:hscstudio/belajar-git.git`
+![star-fork-github](images/star-fork-github.png)
 
-- masuk ke direktori belajar-git
+Pilih yang use SSH ya bukan use HTTPS.
 
-`cd belajar git`
+Pada contoh ini, alamatnya adalah:
+
+`git@github.com:kungfukoding/belajar-git.git`
+
+Tentu akan berbeda alamatnya menyesuaikan dengan nama username-mu di github. Ingat bukan clone di repo ini ya tapi direpo yang sudah kamu fork.
+
+- Pada terminal, jalankan perintah berikut:
+
+`git clone git@github.com:USERNAME_GUTHUBMU/belajar-git.git`
+
+Ganti `USERNAME_GUTHUBMU` dengan username dari akun githubmu atau sesuai apa yang pada bagian sebelumnya kamu copy.
+
+- Perintah diatas otomatis akan mengunduh repo hasil fork ke lokal komputer yaitu pada direktori belajar-git. Masih via terminal, jalankan perintah berikut untuk masuk ke direktori `belajar-git`
+
+```
+➜  latihan git clone git@github.com:kungfukoding/belajar-git.git
+Cloning into 'belajar-git'...
+Warning: Permanently added the RSA host key for IP address 'x.x.x.x' to the list of known hosts.
+Enter passphrase for key '/Users/hafidmukhlasin/.ssh/id_rsa':
+remote: Enumerating objects: 55, done.
+remote: Counting objects: 100% (55/55), done.
+remote: Compressing objects: 100% (45/45), done.
+remote: Total 55 (delta 22), reused 32 (delta 8), pack-reused 0
+Receiving objects: 100% (55/55), 509.35 KiB | 511.00 KiB/s, done.
+Resolving deltas: 100% (22/22), done.
+```
+
+`cd belajar-git`
 
 - instalasi repo ini
 
@@ -133,11 +161,17 @@ Tugas kamu adalah menambahkan (ingat menambahkan ya bukan mengubah) nama dan lin
 
 Pada file itu ada contohnya yaitu kode yang dikomentari, tolong jangan hapus kode yang dikomentari tersebut karena akan menjadi panduan bagi yang lain.
 
+Namun jangan koding dulu, ikutin langkah berikutnya.
+
 ## Langkah Keempat
 
-Sebelumnya jalankan perintah `git pull` untuk memastikan bahwa kode repo kamu adalah yang terbaru. 
+Tambahkan repo ini sebagai repo utama untuk memudahkan kita nantinya mengecek apakan terjadi konflik atau tidak dengan repo utama (hscstudio/belajar-git) 
 
-Jalankan perintah `git status` untuk mengecek kamu saat ini berada pada branch apa. 
+- Pada terminal jalankan perintah `git remote add <nama-repo-utama> <alamat-repo>`. nama-repo-utama dapat diisikan bebas, seperti berikut:
+
+`git remote add upstream git://github.com/hscstudio/belajar-git.git`
+ 
+- Jalankan perintah `git status` untuk mengecek kamu saat ini berada pada branch apa. 
 
 Contoh hasilnya:
 
@@ -146,9 +180,9 @@ On branch master
 Your branch is up to date with 'origin/master'.
 ```
 
-> Branch utama atau default bernama `master`, dan aturan dari repo ini adalah kamu tidak boleh melakukan perubahan kode pada branch utama secara langsung.
+> Branch utama atau default bernama `master`, dan aturan dari repo ini adalah kamu tidak boleh melakukan perubahan kode pada branch utama secara langsung, dan supaya tidak merusak history dari proyek. Oleh karena itu kita akan membuat branch baru dan bekerja alias koding pada branch tersebut.
 
-Jika kamu sudah merasa siap untuk melakuan perubahan maka masuk  `branch` baru dengan nama fitur yang ingin kamu tambahkan yaitu `fitur_contributor`
+Jika kamu sudah merasa siap untuk melakuan perubahan maka masuk `branch` baru dengan nama fitur yang ingin kamu tambahkan yaitu `fitur_contributor`
 
 Pada terminal jalankan perintah 
 
@@ -161,9 +195,7 @@ git branch fitur_contributor
 git checkout fitur_contributor
 ```
 
-- Jalankan perintah `git pull` untuk mendapatkan kode terbaru dari server git.
-
-- Lakukan perubahan sesuai tugas pada Langkah Ketiga.
+- Lakukan perubahan atau koding sesuai tugas pada Langkah Ketiga.
 
 - Jika sudah, jalankan test `npm test`
 
@@ -184,9 +216,28 @@ Ran all test suites.
   
 - Kemudian commit perubahan tersebut, dengan perintah `git commit -m "update fitur contributor"`
 
-- Jalankan perintah `git pull` untuk mendapatkan kode terbaru dari server git. Pada saat ini bisa jadi ada error dikodemu karena terjadi conflict yaitu ada perbedaan kode repo dan kodemu, maka perbaiki error itu, lakukan merge.
+untuk memastikan tidak terdapat konflik pada perubahan yang kita lakukan (Konflik bisa terjadi akibat ada kontributor lain yang telah melakukan perubahan setelah kita mem-fork repo utama), maka kita perlu mengambil kode lagi dari repo utama, 
 
-- Jalankan test lagi `npm test` untuk memastikan semua baik-baik saja.
+- Jalankan perintah berikut untuk memastikan tidak terjadi konflik 
+
+`git fetch upstream`
+
+Lakukan update jika terjadi konflik, simpan dan lakukan git add serta git commit lagi.
+
+## Langkah Kelima
+
+Mengirim perubahan yang kita lakukan ke repo utama.
+
+- Pastikan bahwa kita berada pada repo master `git checkout master`
+
+- Jalankan perintah berikut untuk memastikan tidak terjadi konflik 
+
+```
+git fetch upstream`
+git merge upstream/master
+```
+
+> Jika terdapat konflik makas silakan diperbaiki dulu.
 
 - Push perubahanmu ke repo server, melalui perintah:
 
