@@ -222,6 +222,19 @@ untuk memastikan tidak terdapat konflik pada perubahan yang kita lakukan (Konfli
 
 `git fetch upstream`
 
+Apabila di repo utama terdapat perubahan namun tidak conflict, maka hasilnya sebagai berikut:
+
+```
+git fetch upstream
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From git://github.com/hscstudio/belajar-git
+   4d0191c..f6574db  master     -> upstream/master
+```
+
 Lakukan update jika terjadi konflik, simpan dan lakukan git add serta git commit lagi.
 
 ## Langkah Kelima
