@@ -244,7 +244,6 @@ Fast-forward
 - Setelah repo utama uptodate maka kita balik lagi ke branch `fitur_contributor`, melalui perintah berikut: `git checkout fitur_contributor`
 
 - Berikutnya kita gabungkan perubahan kita pada branch ini ke branch master. Melalui perintah: `git rebase master`
-```
 
 Jika tidak terjadi conflict maka hasilnya sebagai berikut: 
 
