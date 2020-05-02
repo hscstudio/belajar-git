@@ -1,6 +1,6 @@
 const contributors = [
   { name: 'Hafid Mukhlasin', link: 'https://github.com/hscstudio' },
-  // { name: 'namamu', link: 'link_githubmu' },
+  // { name: 'namamu', link: 'link_githubmu' }, test
 ]
 
 const found = (contributor) => {
