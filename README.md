@@ -94,13 +94,13 @@ Namun sebelum itu, jika kamu merasa terbantu dalam belajar git menggunakan repos
 - Langkah pertama adalah mengcopy repo ini ke repo-mu (ini harus dilakukan jika kamu ingin berkontribusi pada suatu repo). Caranya: klik tombol "Fork" pada bagian kiri atas halaman sebagaimana yang ditujukkan pada gambar di atas.
 Jika berhasil maka tampilan di repomu kurang lebih akan seperti berikut ini:
 
-![star-fork-github](images/star-fork-github.png)
+![fork-result](images/fork-result.png)
 
 Perhatikan bahwa ada informasi "forked from hscstudio/belajar-git" yang menandakan bahwa repo mu itu hasil fork dari repo ini hscstudio/belajar-git.
 
 - Copy repo hasil fork tadi ke lokal PC-mu atau istilahnya meng-clone. Caranya adalah copy 
 
-![star-fork-github](images/star-fork-github.png)
+![clone-repo](images/clone-repo.png)
 
 Pilih yang use SSH ya bukan use HTTPS.
 
@@ -116,13 +116,12 @@ Tentu akan berbeda alamatnya menyesuaikan dengan nama username-mu di github. Ing
 
 Ganti `USERNAME_GUTHUBMU` dengan username dari akun githubmu atau sesuai apa yang pada bagian sebelumnya kamu copy.
 
-- Perintah diatas otomatis akan mengunduh repo hasil fork ke lokal komputer yaitu pada direktori belajar-git. Masih via terminal, jalankan perintah berikut untuk masuk ke direktori `belajar-git`
+Berikut contoh tampilannya:
 
 ```
 ➜  latihan git clone git@github.com:kungfukoding/belajar-git.git
 Cloning into 'belajar-git'...
 Warning: Permanently added the RSA host key for IP address 'x.x.x.x' to the list of known hosts.
-Enter passphrase for key '/Users/hafidmukhlasin/.ssh/id_rsa':
 remote: Enumerating objects: 55, done.
 remote: Counting objects: 100% (55/55), done.
 remote: Compressing objects: 100% (45/45), done.
@@ -130,6 +129,8 @@ remote: Total 55 (delta 22), reused 32 (delta 8), pack-reused 0
 Receiving objects: 100% (55/55), 509.35 KiB | 511.00 KiB/s, done.
 Resolving deltas: 100% (22/22), done.
 ```
+
+- Perintah diatas otomatis akan mengunduh repo hasil fork ke lokal komputer yaitu pada direktori belajar-git. Masih via terminal, jalankan perintah berikut untuk masuk ke direktori `belajar-git`
 
 `cd belajar-git`
 
@@ -216,71 +217,114 @@ Ran all test suites.
   
 - Kemudian commit perubahan tersebut, dengan perintah `git commit -m "update fitur contributor"`
 
-untuk memastikan tidak terdapat konflik pada perubahan yang kita lakukan (Konflik bisa terjadi akibat ada kontributor lain yang telah melakukan perubahan setelah kita mem-fork repo utama), maka kita perlu mengambil kode lagi dari repo utama, 
-
-- Jalankan perintah berikut untuk memastikan tidak terjadi konflik 
-
-`git fetch upstream`
-
-Apabila di repo utama terdapat perubahan namun tidak conflict, maka hasilnya sebagai berikut:
-
-```
-git fetch upstream
-remote: Enumerating objects: 5, done.
-remote: Counting objects: 100% (5/5), done.
-remote: Compressing objects: 100% (3/3), done.
-remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (3/3), done.
-From git://github.com/hscstudio/belajar-git
-   4d0191c..f6574db  master     -> upstream/master
-```
-
-Lakukan update jika terjadi konflik, simpan dan lakukan git add serta git commit lagi.
 
 ## Langkah Kelima
 
-Mengirim perubahan yang kita lakukan ke repo utama.
+Setelah kita selesai koding maka berikutnya adalah mengirim perubahan yang kita lakukan tersebut ke repo utama.
 
 - Pastikan bahwa kita berada pada repo master `git checkout master`
-
-- Jalankan perintah berikut untuk memastikan tidak terjadi konflik 
+- Jalankan perintah berikut untuk memastikan branch master kita uptodate dengan cara mengambil kode dari repo utama. 
 
 ```
 git fetch upstream`
 git merge upstream/master
 ```
 
-> Jika terdapat konflik makas silakan diperbaiki dulu.
-
-- Push perubahanmu ke repo server, melalui perintah:
-
-`git push origin fitur_contributor`
-
-Hasilnya kurang lebih sebagai berikut:
+Berikut contoh hasilnya, jika di repo utama terdapat perubahan.
 
 ```
-Enumerating objects: 9, done.
-Counting objects: 100% (9/9), done.
+git merge upstream/master
+Updating 4d0191c..4b3743c
+Fast-forward
+ README.md    | 98 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------
+ src/index.js |  3 ++-
+ 2 files changed, 83 insertions(+), 18 deletions(-)
+```
+
+- Setelah repo utama uptodate maka kita balik lagi ke branch `fitur_contributor`, melalui perintah berikut: `git checkout fitur_contributor`
+
+- Berikutnya kita gabungkan perubahan kita pada branch ini ke branch master. Melalui perintah: `git rebase master`
+```
+
+Jika tidak terjadi conflict maka hasilnya sebagai berikut: 
+
+```
+git rebase master
+Current branch fitur_contributor is up to date.
+```
+
+> Conflict bisa terjadi akibat ada perbedaan kode antara branch master yang telah kita update dengan branch `fitur_contributor`.
+
+Berikut contoh tampilan jika terjadi conflict
+
+```
+git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: update fitur contributor
+Using index info to reconstruct a base tree...
+M       src/index.js
+Falling back to patching base and 3-way merge...
+Auto-merging src/index.js
+CONFLICT (content): Merge conflict in src/index.js
+error: Failed to merge in the changes.
+Patch failed at 0001 update fitur contributor
+hint: Use 'git am --show-current-patch' to see the failed patch
+
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+```
+
+Tampilan diatas mengindikasikan bahwa terdapat conflict pada file `src/index.js`, maka buka file itu dan silakan diperbaiki. Jika sudah diperbaiki simpan file tsb. Lalu jalankan perintah `git add src/index.js` atau lakukan untuk semua file yang conflict.
+
+Jika sudah jangan di commit tapi langsung jalankan perintah `git rebase --continue`
+
+Maka hasilnya kurang lebih sebagai berikut:
+
+```
+git rebase --continue 
+Applying: update fitur contributor
+Applying: update
+Using index info to reconstruct a base tree...
+M       src/index.js
+.git/rebase-apply/patch:9: trailing whitespace.
+  
+warning: 1 line adds whitespace errors.
+Falling back to patching base and 3-way merge...
+Auto-merging src/index.js
+```
+
+- Jalankan rebase master lagi untuk memastikan semua conflict telah baik-baik saja `git rebase master`
+
+- Jalankan `npm test` terakhir untuk memastikan kode perubahan kita tetap jalan sebelum di push.
+
+- Push perubahanmu ke repomu terlebih dahulu, melalui perintah: `git push origin fitur_contributor`
+
+Berikut ini contoh hasilnya:
+
+```
+git push origin fitur_contributor
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
 Delta compression using up to 4 threads
-Compressing objects: 100% (5/5), done.
-Writing objects: 100% (5/5), 571 bytes | 571.00 KiB/s, done.
-Total 5 (delta 2), reused 0 (delta 0)
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 808 bytes | 808.00 KiB/s, done.
+Total 9 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), completed with 3 local objects.
 remote: 
 remote: Create a pull request for 'fitur_contributor' on GitHub by visiting:
-remote:      https://github.com/hscstudio/belajar-git/pull/new/fitur_contributor
+remote:      https://github.com/kungfukoding/belajar-git/pull/new/fitur_contributor
 remote: 
-To https://github.com/hscstudio/belajar-git.git
+To github.com:kungfukoding/belajar-git.git
  * [new branch]      fitur_contributor -> fitur_contributor
  ```
 
-Hasil diatas mengindikasikan bahwa push yang kamu lakukan berhasil dan si github  menyuruh kamu mengakses halaman https://github.com/hscstudio/belajar-git/pull/new/fitur_contributor untuk melakukan `pull request` kepada si pemilik repo, ikuti langkah berikutnya dulu.
-
-> Jika error, coba kamu baca link ini: https://stackoverflow.com/questions/15381198/remove-credentials-from-git
+Hasil diatas mengindikasikan bahwa push yang kita lakukan berhasil dan si github  menyuruh kita mengakses halaman https://github.com/kungfukoding/belajar-git/pull/new/fitur_contributor untuk melakukan `pull request` kepada si pemilik repo, ikuti langkah berikutnya dulu.
 
 - Submit perubahan atau pull request agar bisa direview oleh pemilik repo ini atau dalam hal ini saya.
 
-Setelah push dilakukan, maka buka repo ini pada browser dengan alamat https://github.com/hscstudio/belajar-git, silakan login ke github jika belum.
+Setelah push dilakukan, buka repomu pada github.
 
 Maka akan muncul tampilan seperti di bawah ini:
 
@@ -293,6 +337,8 @@ Maka akan muncul tampilan seperti di bawah ini:
 Halaman ini menampilkan perbandingan antara kode branch kita dengan kode master di repo, bagian mana yang berubah dst. Github otomatis melakukan pengecekan apakah ada conflict atau tidak. Pada contoh gambar diatas terdapat informasi `able to merge` artinya tidak ada conflict.
 
 - Langkah berikutnya silakan isi komentar pada form tersebut kemudian klik tombol `Create pull request`.
+
+![submit-pull-request](images/submit-pull-request.png)
 
 - Tetap tenang, karena saya akan mereview `pull request`-mu pada kesempatan berikutnya, jika tidak ada conflict maka akan saya merge namun jika masih perlu perubahan akan saya cancel atau akan ada komentar dari saya pada halaman tersebut.
 
