@@ -1,6 +1,7 @@
 const contributors = [
   { name: 'Hafid Mukhlasin', link: 'https://github.com/hscstudio' },
   { name: 'Kungfu Koding', link: 'https://github.com/kungfukoding' },
+  { name: 'easyphpframework', link: 'https://github.com/easyphpframework' },
   
   // { name: 'namamu', link: 'link_githubmu' },
 ]
