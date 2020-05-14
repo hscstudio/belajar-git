@@ -3,6 +3,7 @@ const contributors = [
   { name: 'Kungfu Koding', link: 'https://github.com/kungfukoding' },
   { name: 'easyphpframework', link: 'https://github.com/easyphpframework' },
   { name: 'Tio Andri Prasetyo', link: 'https://github.com/tioandri91' },
+  { name: 'Tesmo', link: 'https://github.com/tesmoinc/belajar-git' }
   
   // { name: 'namamu', link: 'link_githubmu' },
 ]
