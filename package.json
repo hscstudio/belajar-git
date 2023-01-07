@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/hscstudio/belajar-git#readme",
   "devDependencies": {
-    "jest": "^25.4.0"
+    "jest": "^29.3.1"
   }
 }
